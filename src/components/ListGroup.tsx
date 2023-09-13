@@ -1,14 +1,21 @@
 function ListGroup() {
+  let cities = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
+
+  cities = [];
+
+  // In JSX we don't have for loops, we can use map instead.
+  // With bracets we can use JS inside the return statement.
   return (
     <>
-        <h1>My List Group</h1>
-        <ul className="list-group">
-          <li className="list-group-item">An item</li>
-          <li className="list-group-item">A second item</li>
-          <li className="list-group-item">A third item</li>
-          <li className="list-group-item">A fourth item</li>
-          <li className="list-group-item">And a fifth one</li>
-        </ul>
+      <h1>My List Group</h1>
+      {cities.length === 0 && <p>There are no cities to render.</p>} {/* This is a common practice that React developers use to render content dynamically. */}
+      <ul className="list-group">
+        {cities.map((city, index) => (
+          <li key={index} className="list-group-item">
+            {city}
+          </li>
+        ))}
+      </ul>
     </>
   );
 }
