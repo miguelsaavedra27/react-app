@@ -1,7 +1,10 @@
+import { MouseEvent } from "react";
+
 function ListGroup() {
   let cities = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
 
-  // cities = [];
+  // Event handler. Handles the click event.
+  const handleClick = (event: MouseEvent) => console.log(event);
 
   // In JSX we don't have for loops, we can use map instead.
   // With bracets we can use JS inside the return statement.
@@ -15,7 +18,7 @@ function ListGroup() {
           <li
             key={index}
             className="list-group-item"
-            onClick={() => console.log(city)}
+            onClick={handleClick} // These return SyntheticBaseEvent object, which is a React object.
           >
             {city}
           </li>
